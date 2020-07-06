@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginField: UITextField!
+    
+    let loginSegueName : String = "LoginSegue"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,16 +52,37 @@ class ViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    @IBAction func login(_ sender: UIButton) {
-        guard let loginText = loginField.text else { return }
-        guard let passwordText = passwordField.text else { return }
+    private func checkLoginInfo() -> Bool {
+        guard let loginText = loginField.text else { return false }
+        guard let passwordText = passwordField.text else { return false }
         
-        if loginText == "admin", passwordText == "password" {
-            print("Авторизация выполнена")
+        if loginText == "admin", passwordText == "12345" {
+            return true
         }
         else {
-            print("Неправельный логин/пароль!")
+            return false
         }
+    }
+    
+    private func showLoginError() {
+        let alert = UIAlertController(title: "Ошибка!", message: "Логин и/или пароль не верны", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard identifier == loginSegueName else {return true }
+        
+        if checkLoginInfo() {
+            return true
+        }
+        else {
+            showLoginError()
+            return false
+        }
+
     }
 }
 
