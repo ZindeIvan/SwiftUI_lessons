@@ -8,23 +8,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Fiends-->
+        <!--Friends-->
         <scene sceneID="SIa-PP-fAh">
             <objects>
-                <tableViewController id="Whm-4e-r6k" sceneMemberID="viewController">
+                <tableViewController id="Whm-4e-r6k" customClass="FriendsTableViewController" customModule="VK_client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RSl-A1-2ia">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Roo-q0-aU4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsTableCell" id="Roo-q0-aU4" customClass="FriendsTableCell" customModule="VK_client" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Roo-q0-aU4" id="eUw-1h-8KL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend name label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-2z-ngq">
+                                            <rect key="frame" x="70" y="12" width="135.5" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iy9-19-wT3" userLabel="Friend Icon Image View">
+                                            <rect key="frame" x="20" y="2" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="I4c-lb-WWH"/>
+                                                <constraint firstAttribute="height" constant="40" id="pRY-2M-06F"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iy9-19-wT3" firstAttribute="leading" secondItem="eUw-1h-8KL" secondAttribute="leadingMargin" id="EgB-rv-r1h"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KTr-2z-ngq" secondAttribute="trailing" constant="20" symbolic="YES" id="IK0-PL-FTa"/>
+                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerY" secondItem="eUw-1h-8KL" secondAttribute="centerY" id="WFw-w3-xXO"/>
+                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerY" secondItem="KTr-2z-ngq" secondAttribute="centerY" id="gYK-4v-he3"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="leading" secondItem="iy9-19-wT3" secondAttribute="trailing" constant="10" id="tIb-j5-Imo"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="friendIconView" destination="iy9-19-wT3" id="9XU-5x-F4B"/>
+                                    <outlet property="friendNameLabel" destination="KTr-2z-ngq" id="u1X-Sl-Y7U"/>
                                     <segue destination="xj2-cS-mWp" kind="show" id="Tuw-zk-2wW"/>
                                 </connections>
                             </tableViewCell>
@@ -34,7 +58,7 @@
                             <outlet property="delegate" destination="Whm-4e-r6k" id="6qr-gS-js3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Fiends" id="k5L-Vr-wYV"/>
+                    <navigationItem key="navigationItem" title="Friends" id="k5L-Vr-wYV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Q4-Ot-mYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
