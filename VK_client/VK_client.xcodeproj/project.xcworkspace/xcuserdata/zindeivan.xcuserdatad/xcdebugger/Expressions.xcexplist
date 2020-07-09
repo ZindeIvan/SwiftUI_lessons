@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "FriendsTableViewController.tableView(_:didSelectRowAt:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FriendsTableViewController.tableView(_:willSelectRowAt:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedRowIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +26,25 @@
             </PersistentString>
             <PersistentString
                value = "identifier == loginSegueName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FriendsTableViewController.prepare(for:sender:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "FriendsList[selectedRowIndex].userID">
+            </PersistentString>
+            <PersistentString
+               value = "selectedRowIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FriendsPhotoCollectionViewController.collectionView(_:cellForItemAt:):FriendsPhotoCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

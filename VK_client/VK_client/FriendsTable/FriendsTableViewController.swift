@@ -10,11 +10,17 @@ import UIKit
 
 class FriendsTableViewController : UITableViewController{
     
-    private var FriendsList : [[String]] = [
-        ["Bruce Wayne","batman_icon"],
-        ["Clark Kent","superman_icon"],
-        ["Diana Prince","wonderwoman_icon"]
+    private var FriendsList : [User] = [
+        User(userName: "Arthur Curry", userID: "aquaman"),
+        User(userName: "Barry Allen", userID: "flash"),
+        User(userName: "Bruce Wayne", userID: "batman"),
+        User(userName: "Clark Kent", userID: "superman"),
+        User(userName: "Diana Prince", userID: "wonderwoman"),
+        User(userName: "Hal Jordan", userID: "greenlantern"),
+        User(userName: "Victor Stone", userID: "cyborg")
     ]
+    
+    var selectedRowIndex : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +32,26 @@ class FriendsTableViewController : UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableCell") as? FriendsTableCell else { fatalError() }
-        cell.friendNameLabel.text = FriendsList[indexPath.row][0]
-        cell.friendIconView.image = UIImage(named: FriendsList[indexPath.row][1])
+        cell.friendNameLabel.text = FriendsList[indexPath.row].userName
+        cell.friendIconView.image = UIImage(named: FriendsList[indexPath.row].userID + "_icon")
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedRowIndex = indexPath.row
+        return indexPath
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "FriendsPhotoSegue" {
+            if let destination = segue.destination as? FriendsPhotoCollectionViewController {
+                destination.friendID = FriendsList[selectedRowIndex].userID
+            }
+        }
     }
 }
 
