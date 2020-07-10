@@ -10,6 +10,11 @@
 		B546E4AB24B762E10003FEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AA24B762E10003FEA3 /* User.swift */; };
 		B546E4AE24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AD24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift */; };
 		B546E4B024B76EC10003FEA3 /* FriendsPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */; };
+		B5476EDC24B8CD3E00F7570C /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EDB24B8CD3E00F7570C /* GroupsTableViewController.swift */; };
+		B5476EDE24B8CD6C00F7570C /* GroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EDD24B8CD6C00F7570C /* GroupsTableCell.swift */; };
+		B5476EE124B8CDA200F7570C /* GroupsSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EE024B8CDA200F7570C /* GroupsSearchTableViewController.swift */; };
+		B5476EE324B8CDBA00F7570C /* GroupsSearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EE224B8CDBA00F7570C /* GroupsSearchTableCell.swift */; };
+		B5476EE524B8D0D800F7570C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EE424B8D0D800F7570C /* Group.swift */; };
 		B57E2D6E24B62D7A006CD7F3 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57E2D6D24B62D7A006CD7F3 /* FriendsTableViewController.swift */; };
 		B57E2D7124B62F9A006CD7F3 /* FriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57E2D7024B62F9A006CD7F3 /* FriendsTableCell.swift */; };
 		B590EDD224AF67EA00179DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590EDD124AF67EA00179DEA /* AppDelegate.swift */; };
@@ -24,6 +29,11 @@
 		B546E4AA24B762E10003FEA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B546E4AD24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCell.swift; sourceTree = "<group>"; };
+		B5476EDB24B8CD3E00F7570C /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
+		B5476EDD24B8CD6C00F7570C /* GroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableCell.swift; sourceTree = "<group>"; };
+		B5476EE024B8CDA200F7570C /* GroupsSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchTableViewController.swift; sourceTree = "<group>"; };
+		B5476EE224B8CDBA00F7570C /* GroupsSearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchTableCell.swift; sourceTree = "<group>"; };
+		B5476EE424B8D0D800F7570C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		B57E2D6D24B62D7A006CD7F3 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		B57E2D7024B62F9A006CD7F3 /* FriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableCell.swift; sourceTree = "<group>"; };
 		B590EDCE24AF67EA00179DEA /* VK_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				B546E4AA24B762E10003FEA3 /* User.swift */,
+				B5476EE424B8D0D800F7570C /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,6 +73,24 @@
 				B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */,
 			);
 			path = FriendsPhotoCollection;
+			sourceTree = "<group>";
+		};
+		B5476EDA24B8CD0A00F7570C /* GroupsTable */ = {
+			isa = PBXGroup;
+			children = (
+				B5476EDB24B8CD3E00F7570C /* GroupsTableViewController.swift */,
+				B5476EDD24B8CD6C00F7570C /* GroupsTableCell.swift */,
+			);
+			path = GroupsTable;
+			sourceTree = "<group>";
+		};
+		B5476EDF24B8CD7800F7570C /* GroupsSearchTable */ = {
+			isa = PBXGroup;
+			children = (
+				B5476EE024B8CDA200F7570C /* GroupsSearchTableViewController.swift */,
+				B5476EE224B8CDBA00F7570C /* GroupsSearchTableCell.swift */,
+			);
+			path = GroupsSearchTable;
 			sourceTree = "<group>";
 		};
 		B57E2D6F24B62F5D006CD7F3 /* FriendsTable */ = {
@@ -92,6 +121,8 @@
 		B590EDD024AF67EA00179DEA /* VK_client */ = {
 			isa = PBXGroup;
 			children = (
+				B5476EDF24B8CD7800F7570C /* GroupsSearchTable */,
+				B5476EDA24B8CD0A00F7570C /* GroupsTable */,
 				B546E4A924B762AC0003FEA3 /* Model */,
 				B590EDD124AF67EA00179DEA /* AppDelegate.swift */,
 				B57E2D6F24B62F5D006CD7F3 /* FriendsTable */,
@@ -179,11 +210,16 @@
 			files = (
 				B590EDD624AF67EA00179DEA /* LoginViewController.swift in Sources */,
 				B57E2D7124B62F9A006CD7F3 /* FriendsTableCell.swift in Sources */,
+				B5476EDE24B8CD6C00F7570C /* GroupsTableCell.swift in Sources */,
+				B5476EDC24B8CD3E00F7570C /* GroupsTableViewController.swift in Sources */,
+				B5476EE124B8CDA200F7570C /* GroupsSearchTableViewController.swift in Sources */,
 				B546E4AB24B762E10003FEA3 /* User.swift in Sources */,
+				B5476EE524B8D0D800F7570C /* Group.swift in Sources */,
 				B590EDD224AF67EA00179DEA /* AppDelegate.swift in Sources */,
 				B57E2D6E24B62D7A006CD7F3 /* FriendsTableViewController.swift in Sources */,
 				B590EDD424AF67EA00179DEA /* SceneDelegate.swift in Sources */,
 				B546E4B024B76EC10003FEA3 /* FriendsPhotoCell.swift in Sources */,
+				B5476EE324B8CDBA00F7570C /* GroupsSearchTableCell.swift in Sources */,
 				B546E4AE24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

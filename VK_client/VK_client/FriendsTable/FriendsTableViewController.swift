@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsTableViewController : UITableViewController{
     
-    private var FriendsList : [User] = [
+    private var friendsList : [User] = [
         User(userName: "Arthur Curry", userID: "aquaman"),
         User(userName: "Barry Allen", userID: "flash"),
         User(userName: "Bruce Wayne", userID: "batman"),
@@ -27,13 +27,13 @@ class FriendsTableViewController : UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendsList.count
+        return friendsList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableCell") as? FriendsTableCell else { fatalError() }
-        cell.friendNameLabel.text = FriendsList[indexPath.row].userName
-        cell.friendIconView.image = UIImage(named: FriendsList[indexPath.row].userID + "_icon")
+        cell.friendNameLabel.text = friendsList[indexPath.row].userName
+        cell.friendIconView.image = UIImage(named: friendsList[indexPath.row].userID + "_icon")
         return cell
     }
     
@@ -49,7 +49,7 @@ class FriendsTableViewController : UITableViewController{
         
         if segue.identifier == "FriendsPhotoSegue" {
             if let destination = segue.destination as? FriendsPhotoCollectionViewController {
-                destination.friendID = FriendsList[selectedRowIndex].userID
+                destination.friendID = friendsList[selectedRowIndex].userID
             }
         }
     }

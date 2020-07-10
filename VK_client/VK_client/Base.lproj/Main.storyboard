@@ -215,19 +215,45 @@
         <!--Groups-->
         <scene sceneID="KtL-XF-Yw8">
             <objects>
-                <tableViewController id="dy5-Ij-n0F" sceneMemberID="viewController">
+                <tableViewController id="dy5-Ij-n0F" customClass="GroupsTableViewController" customModule="VK_client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QtI-Tk-gKC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uHI-B3-ZaJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupsTableCell" id="uHI-B3-ZaJ" customClass="GroupsTableCell" customModule="VK_client" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uHI-B3-ZaJ" id="Tre-Ua-pVa">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pge-sM-tE3">
+                                            <rect key="frame" x="70" y="11.5" width="143" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-jw-hIK" userLabel="Group Icon Image View">
+                                            <rect key="frame" x="20" y="2" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Qwp-PY-Bh8"/>
+                                                <constraint firstAttribute="width" constant="40" id="wpA-a2-J9c"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Pge-sM-tE3" secondAttribute="trailing" constant="20" symbolic="YES" id="EF9-tJ-S2c"/>
+                                        <constraint firstItem="WXI-jw-hIK" firstAttribute="centerY" secondItem="Pge-sM-tE3" secondAttribute="centerY" id="Fzn-Yu-VoD"/>
+                                        <constraint firstItem="WXI-jw-hIK" firstAttribute="leading" secondItem="Tre-Ua-pVa" secondAttribute="leadingMargin" id="UGp-3W-ws8"/>
+                                        <constraint firstItem="Pge-sM-tE3" firstAttribute="leading" secondItem="WXI-jw-hIK" secondAttribute="trailing" constant="10" id="dsY-E3-9sZ"/>
+                                        <constraint firstItem="WXI-jw-hIK" firstAttribute="centerY" secondItem="Tre-Ua-pVa" secondAttribute="centerY" id="vFW-mC-CEf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupIconView" destination="WXI-jw-hIK" id="8iw-Nx-kfn"/>
+                                    <outlet property="groupNameLabel" destination="Pge-sM-tE3" id="E45-ff-WGe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -236,7 +262,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="cHv-uy-xEs">
-                        <barButtonItem key="rightBarButtonItem" title="Search" image="magnifyingglass" catalog="system" id="na0-Ye-ZWo">
+                        <barButtonItem key="rightBarButtonItem" title="Search" image="plus" catalog="system" id="na0-Ye-ZWo">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Av8-g8-QLb" kind="show" id="X7H-h9-HC8"/>
@@ -251,19 +277,47 @@
         <!--Search-->
         <scene sceneID="eh7-PY-WJI">
             <objects>
-                <tableViewController id="Av8-g8-QLb" sceneMemberID="viewController">
+                <tableViewController id="Av8-g8-QLb" customClass="GroupsSearchTableViewController" customModule="VK_client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w5B-GO-0FC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IF1-bg-Ffn">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupsSearchTableCell" id="IF1-bg-Ffn" customClass="GroupsSearchTableCell" customModule="VK_client" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IF1-bg-Ffn" id="dgf-xB-wyi">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhl-HU-Hlo">
+                                            <rect key="frame" x="70" y="11" width="143" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bY3-bx-9az" userLabel="Group Icon Image View">
+                                            <rect key="frame" x="20" y="1.5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Jgf-5n-lWY"/>
+                                                <constraint firstAttribute="width" constant="40" id="wHX-K3-fjT"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bY3-bx-9az" firstAttribute="centerY" secondItem="qhl-HU-Hlo" secondAttribute="centerY" id="6Td-Gu-cWv"/>
+                                        <constraint firstItem="bY3-bx-9az" firstAttribute="centerY" secondItem="dgf-xB-wyi" secondAttribute="centerY" id="DGj-iw-gIX"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qhl-HU-Hlo" secondAttribute="trailing" constant="20" symbolic="YES" id="TZk-Dw-T2P"/>
+                                        <constraint firstItem="qhl-HU-Hlo" firstAttribute="top" secondItem="dgf-xB-wyi" secondAttribute="topMargin" id="apf-kt-3nT"/>
+                                        <constraint firstItem="qhl-HU-Hlo" firstAttribute="leading" secondItem="bY3-bx-9az" secondAttribute="trailing" constant="10" id="pzm-yQ-BKq"/>
+                                        <constraint firstItem="bY3-bx-9az" firstAttribute="leading" secondItem="dgf-xB-wyi" secondAttribute="leadingMargin" id="xuq-k4-P9P"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupSearchIconView" destination="bY3-bx-9az" id="lTk-j9-Gox"/>
+                                    <outlet property="groupSearchNameLabel" destination="qhl-HU-Hlo" id="v4R-L7-E0v"/>
+                                    <segue destination="3Dh-Jc-CIb" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="FcU-IV-3ge"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -274,6 +328,7 @@
                     <navigationItem key="navigationItem" title="Search" id="m27-k8-RFL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cea-NW-EdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3Dh-Jc-CIb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4468.115942028986" y="233.70535714285714"/>
         </scene>
@@ -340,9 +395,9 @@
     </scenes>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="vk_icon" width="1440" height="1439"/>
     </resources>
 </document>
