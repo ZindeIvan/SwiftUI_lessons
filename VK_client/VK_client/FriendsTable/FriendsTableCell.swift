@@ -11,5 +11,6 @@ import UIKit
 class FriendsTableCell : UITableViewCell {
     @IBOutlet weak var friendIconView : UIImageView!
     @IBOutlet weak var friendNameLabel : UILabel!
-    
+    @IBOutlet weak var iconShadowView : IconShadowView!
+    @IBOutlet weak var iconView : IconView!
 }

@@ -48,5 +48,19 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+            </PersistentString>
+            <PersistentString
+               value = "frame.minX">
+            </PersistentString>
+            <PersistentString
+               value = "frame.maxX">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

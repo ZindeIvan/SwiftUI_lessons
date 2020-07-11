@@ -24,6 +24,7 @@ class FriendsTableViewController : UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +35,8 @@ class FriendsTableViewController : UITableViewController{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableCell") as? FriendsTableCell else { fatalError() }
         cell.friendNameLabel.text = friendsList[indexPath.row].userName
         cell.friendIconView.image = UIImage(named: friendsList[indexPath.row].userID + "_icon")
+        cell.iconShadowView.configureLayer()
+        cell.iconView.configureLayer()
         return cell
     }
     

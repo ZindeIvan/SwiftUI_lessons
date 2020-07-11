@@ -15,6 +15,13 @@ class LoginController: UIViewController {
     
     let loginSegueName : String = "LoginSegue"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Сэкономим время для тестирования
+        loginField.text = "admin"
+        passwordField.text = "12345"
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
