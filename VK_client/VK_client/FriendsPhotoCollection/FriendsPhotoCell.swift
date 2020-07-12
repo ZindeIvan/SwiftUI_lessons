@@ -8,7 +8,10 @@
 
 import UIKit
 
+//Класс ячейки коллекции фото друзей пользователя
 class FriendsPhotoCell : UICollectionViewCell {
+    //Элемент фото
     @IBOutlet weak var friendPhotoImageView : UIImageView!
+    //Элемент отметки Нравится
     @IBOutlet weak var friendPhotoLikeControlView : LikeControlView!
 }

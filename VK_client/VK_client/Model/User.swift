@@ -8,7 +8,10 @@
 
 import Foundation
 
+//Класс Пользователь
 struct User {
+    //Свойство имени пользователя
     let userName : String
+    //Свойство идентификатора пользователя
     let userID : String
 }

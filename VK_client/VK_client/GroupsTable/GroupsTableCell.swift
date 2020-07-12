@@ -8,7 +8,10 @@
 
 import UIKit
 
+//Класс ячейки списка групп пользователя
 class GroupsTableCell : UITableViewCell {
+    //Иконка группы
     @IBOutlet weak var groupIconView : UIImageView!
+    //Название группы
     @IBOutlet weak var groupNameLabel : UILabel!
 }

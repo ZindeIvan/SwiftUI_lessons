@@ -8,9 +8,11 @@
 
 import UIKit
 
+//Класс для отображения списка доступных групп пользователя
 class GroupsSearchTableViewController : UITableViewController {
     
-   var groupsList : [Group] = [
+   //Свойство содержащее массив всех групп типа структура Group
+   private var groupsList : [Group] = [
     
         Group(groupName: "A.R.G.U.S.", groupID: "argus"),
         Group(groupName: "Birds of Prey", groupID: "birdsofprey"),
@@ -26,17 +28,26 @@ class GroupsSearchTableViewController : UITableViewController {
         
     ]
     
+    //Метод возвращает Группу по индексу
+    func getGroupByIndex (index : Int) -> Group? {
+        guard index >= 0 && index < groupsList.count else {return nil}
+        return groupsList[index]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Возвращаем количество ячеек таблицы = количеству элементов массива groupsList
         return groupsList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsSearchTableCell") as? GroupsSearchTableCell else { fatalError() }
+        //Зададим надпись ячейки
         cell.groupSearchNameLabel.text = groupsList[indexPath.row].groupName
+        //Установим иконку ячейки
         cell.groupSearchIconView.image = UIImage(named: groupsList[indexPath.row].groupID + "_icon")
         
         return cell
