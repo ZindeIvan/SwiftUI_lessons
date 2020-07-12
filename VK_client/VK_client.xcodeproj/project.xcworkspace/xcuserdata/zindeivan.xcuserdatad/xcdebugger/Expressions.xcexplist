@@ -11,21 +11,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FriendsTableViewController.tableView(_:willSelectRowAt:):FriendsTableViewController.swift">
+         contextName = "LikeControlView.setupView():LikeControlView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "selectedRowIndex">
+               value = "String(likeCount)">
+            </PersistentString>
+            <PersistentString
+               value = "likeCountLabel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
+         contextName = "FriendsTableViewController.tableView(_:willSelectRowAt:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "loginSegueName">
-            </PersistentString>
-            <PersistentString
-               value = "identifier == loginSegueName">
+               value = "selectedRowIndex">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,6 +45,31 @@
          <PersistentStrings>
             <PersistentString
                value = "friendID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.maxX">
+            </PersistentString>
+            <PersistentString
+               value = "frame.minX">
+            </PersistentString>
+            <PersistentString
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginSegueName">
+            </PersistentString>
+            <PersistentString
+               value = "identifier == loginSegueName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

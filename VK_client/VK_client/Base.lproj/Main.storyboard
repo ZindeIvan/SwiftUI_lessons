@@ -18,37 +18,83 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsTableCell" id="Roo-q0-aU4" customClass="FriendsTableCell" customModule="VK_client" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="45.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Roo-q0-aU4" id="eUw-1h-8KL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend name label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-2z-ngq">
-                                            <rect key="frame" x="70" y="12" width="135.5" height="20"/>
+                                            <rect key="frame" x="80" y="12" width="135.5" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iy9-19-wT3" userLabel="Friend Icon Image View">
-                                            <rect key="frame" x="20" y="2" width="40" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0Y-mz-xYe" userLabel="FriendsIconView">
+                                            <rect key="frame" x="20" y="2" width="40" height="41.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzb-j3-Crj" userLabel="IconShadowView" customClass="IconShadowView" customModule="VK_client" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="41.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-6g-cnl" userLabel="IconView" customClass="IconView" customModule="VK_client" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="41.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iy9-19-wT3" userLabel="Friends Icon Image View">
+                                                            <rect key="frame" x="0.0" y="1" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="I4c-lb-WWH"/>
+                                                                <constraint firstAttribute="height" constant="40" id="pRY-2M-06F"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerX" secondItem="HT6-6g-cnl" secondAttribute="centerX" id="7Bw-Bv-6Pm"/>
+                                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerY" secondItem="HT6-6g-cnl" secondAttribute="centerY" id="MfR-xW-jcQ"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="I4c-lb-WWH"/>
-                                                <constraint firstAttribute="height" constant="40" id="pRY-2M-06F"/>
+                                                <constraint firstItem="HT6-6g-cnl" firstAttribute="trailing" secondItem="bzb-j3-Crj" secondAttribute="trailing" id="0IQ-0c-mU5"/>
+                                                <constraint firstItem="HT6-6g-cnl" firstAttribute="centerY" secondItem="bzb-j3-Crj" secondAttribute="centerY" id="9W0-2l-zoZ"/>
+                                                <constraint firstItem="bzb-j3-Crj" firstAttribute="top" secondItem="c0Y-mz-xYe" secondAttribute="top" id="A7a-gn-7bc"/>
+                                                <constraint firstItem="bzb-j3-Crj" firstAttribute="centerX" secondItem="c0Y-mz-xYe" secondAttribute="centerX" id="Dkn-8l-TdZ"/>
+                                                <constraint firstItem="bzb-j3-Crj" firstAttribute="centerY" secondItem="c0Y-mz-xYe" secondAttribute="centerY" id="Ljs-vt-TyI"/>
+                                                <constraint firstItem="HT6-6g-cnl" firstAttribute="leading" secondItem="bzb-j3-Crj" secondAttribute="leading" id="RdM-1Z-YcI"/>
+                                                <constraint firstItem="bzb-j3-Crj" firstAttribute="leading" secondItem="c0Y-mz-xYe" secondAttribute="leading" id="fdO-hh-32i"/>
+                                                <constraint firstItem="HT6-6g-cnl" firstAttribute="top" secondItem="bzb-j3-Crj" secondAttribute="top" id="sZs-f0-5BH"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="iy9-19-wT3" firstAttribute="leading" secondItem="eUw-1h-8KL" secondAttribute="leadingMargin" id="EgB-rv-r1h"/>
+                                        <constraint firstItem="c0Y-mz-xYe" firstAttribute="top" secondItem="eUw-1h-8KL" secondAttribute="topMargin" constant="-9" id="Bh9-eT-jJi"/>
+                                        <constraint firstItem="c0Y-mz-xYe" firstAttribute="leading" secondItem="eUw-1h-8KL" secondAttribute="leadingMargin" id="CCv-Kx-Gad"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="leading" secondItem="eUw-1h-8KL" secondAttribute="leading" constant="80" id="FQV-Uy-yD4"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="centerY" secondItem="eUw-1h-8KL" secondAttribute="centerY" id="GRc-o7-GlL"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KTr-2z-ngq" secondAttribute="trailing" constant="20" symbolic="YES" id="IK0-PL-FTa"/>
-                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerY" secondItem="eUw-1h-8KL" secondAttribute="centerY" id="WFw-w3-xXO"/>
-                                        <constraint firstItem="iy9-19-wT3" firstAttribute="centerY" secondItem="KTr-2z-ngq" secondAttribute="centerY" id="gYK-4v-he3"/>
-                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="leading" secondItem="iy9-19-wT3" secondAttribute="trailing" constant="10" id="tIb-j5-Imo"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="leading" secondItem="c0Y-mz-xYe" secondAttribute="trailing" constant="20" id="Q04-gF-jwW"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="top" secondItem="eUw-1h-8KL" secondAttribute="topMargin" constant="1" id="jCa-kP-JBg"/>
+                                        <constraint firstItem="KTr-2z-ngq" firstAttribute="centerY" secondItem="c0Y-mz-xYe" secondAttribute="centerY" id="lJx-is-iWL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="friendIconView" destination="iy9-19-wT3" id="9XU-5x-F4B"/>
                                     <outlet property="friendNameLabel" destination="KTr-2z-ngq" id="u1X-Sl-Y7U"/>
+                                    <outlet property="iconShadowView" destination="bzb-j3-Crj" id="CdH-sJ-5Pc"/>
+                                    <outlet property="iconView" destination="HT6-6g-cnl" id="4Q3-FU-yae"/>
                                     <segue destination="xj2-cS-mWp" kind="show" identifier="FriendsPhotoSegue" id="Tuw-zk-2wW"/>
                                 </connections>
                             </tableViewCell>
@@ -87,22 +133,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unf-zJ-7w7">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="10" y="0.0" width="110" height="110"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="128" id="b2z-lh-UvF"/>
-                                                <constraint firstAttribute="height" constant="128" id="qRY-Qz-jwY"/>
+                                                <constraint firstAttribute="width" constant="110" id="b2z-lh-UvF"/>
+                                                <constraint firstAttribute="height" constant="110" id="qRY-Qz-jwY"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHc-Qy-KQL" userLabel="Like View" customClass="LikeControlView" customModule="VK_client" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="108" width="50" height="20"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="unf-zJ-7w7" firstAttribute="top" secondItem="lHd-Wn-pGj" secondAttribute="top" id="EtI-Tu-y8T"/>
-                                        <constraint firstItem="unf-zJ-7w7" firstAttribute="leading" secondItem="lHd-Wn-pGj" secondAttribute="leading" id="acQ-qa-xR3"/>
-                                        <constraint firstAttribute="bottom" secondItem="unf-zJ-7w7" secondAttribute="bottom" id="fJJ-N7-SbM"/>
-                                        <constraint firstAttribute="trailing" secondItem="unf-zJ-7w7" secondAttribute="trailing" id="n5c-eS-Si8"/>
+                                        <constraint firstItem="hHc-Qy-KQL" firstAttribute="top" secondItem="unf-zJ-7w7" secondAttribute="top" constant="108" id="Odi-Xq-wT4"/>
+                                        <constraint firstItem="hHc-Qy-KQL" firstAttribute="leading" secondItem="lHd-Wn-pGj" secondAttribute="leading" constant="10" id="Qff-Uv-TUx"/>
+                                        <constraint firstAttribute="bottom" secondItem="hHc-Qy-KQL" secondAttribute="bottom" id="Tkf-Du-aYb"/>
+                                        <constraint firstItem="unf-zJ-7w7" firstAttribute="leading" secondItem="lHd-Wn-pGj" secondAttribute="leading" constant="10" id="acQ-qa-xR3"/>
+                                        <constraint firstAttribute="bottom" secondItem="unf-zJ-7w7" secondAttribute="bottom" constant="18" id="fJJ-N7-SbM"/>
+                                        <constraint firstAttribute="trailing" secondItem="unf-zJ-7w7" secondAttribute="trailing" constant="8" id="n5c-eS-Si8"/>
+                                        <constraint firstAttribute="trailing" secondItem="hHc-Qy-KQL" secondAttribute="trailing" constant="68" id="pTW-Fe-Lv2"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="friendPhotoImageView" destination="unf-zJ-7w7" id="TuK-3Q-zTP"/>
+                                    <outlet property="friendPhotoLikeControlView" destination="hHc-Qy-KQL" id="G3R-lL-T1D"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

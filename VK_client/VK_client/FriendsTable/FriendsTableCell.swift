@@ -8,8 +8,14 @@
 
 import UIKit
 
+//Класс ячейки списка друзей пользователя
 class FriendsTableCell : UITableViewCell {
+    //Иконка аватарки друга
     @IBOutlet weak var friendIconView : UIImageView!
+    //Надпись имени друга
     @IBOutlet weak var friendNameLabel : UILabel!
-    
+    //Тень иконки аватарки друга
+    @IBOutlet weak var iconShadowView : IconShadowView!
+    //Округление иконки аватарки друга
+    @IBOutlet weak var iconView : IconView!
 }

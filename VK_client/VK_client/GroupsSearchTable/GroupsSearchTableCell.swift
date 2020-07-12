@@ -8,8 +8,11 @@
 
 import UIKit
 
+//Класс ячейки списка доступных групп пользователя
 class GroupsSearchTableCell : UITableViewCell {
+    //Иконка группы
     @IBOutlet weak var groupSearchIconView : UIImageView!
+    //Название группы
     @IBOutlet weak var groupSearchNameLabel : UILabel!
 }
 

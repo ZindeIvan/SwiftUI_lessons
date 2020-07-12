@@ -7,13 +7,23 @@
 //
 
 import UIKit
-
+//Класс для отображения экрана входа
 class LoginController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
+    //Элемент поля ввода пароля
     @IBOutlet weak var passwordField: UITextField!
+    //Элемент поля ввода логина
     @IBOutlet weak var loginField: UITextField!
     
+    //Название перехода для входа
     let loginSegueName : String = "LoginSegue"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Сэкономим время для тестирования
+        //loginField.text = "admin"
+        //passwordField.text = "12345"
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,6 +62,7 @@ class LoginController: UIViewController {
         scrollView.endEditing(true)
     }
     
+    //Метод проверки пароля и логина
     private func checkLoginInfo() -> Bool {
         guard let loginText = loginField.text else { return false }
         guard let passwordText = passwordField.text else { return false }
@@ -64,6 +75,7 @@ class LoginController: UIViewController {
         }
     }
     
+    //Метод отображения ошибки ввода пароля и/или логина
     private func showLoginError() {
         let alert = UIAlertController(title: "Ошибка!", message: "Логин и/или пароль не верны", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -72,12 +84,14 @@ class LoginController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+   //Метод  проверки перехода на экран приложения
    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard identifier == loginSegueName else {return true }
-        
+        //Если проверка логина и пароля пройдена - осуществить переход
         if checkLoginInfo() {
             return true
         }
+        //Если проверка не пройдена отобразить ошибку
         else {
             showLoginError()
             return false
