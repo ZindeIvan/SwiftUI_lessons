@@ -24,6 +24,7 @@ class FriendsPhotoCollectionViewController : UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotoCell", for: indexPath) as! FriendsPhotoCell
         let imagePath : String = friendID == nil ? "error" : friendID! + "_photo\(indexPath.row)"
         cell.friendPhotoImageView.image = UIImage(named: imagePath)
+//        cell.friendPhotoLikeControlView
         return cell
     }
     
