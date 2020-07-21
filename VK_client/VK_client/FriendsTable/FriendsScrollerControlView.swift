@@ -8,10 +8,12 @@
 
 import UIKit
 
+//Протокол делегирования метода прокрутки
 protocol FriendsScrollerControlViewDelegate : class {
     func scrollFriends(letter : Character)
 }
 
+//Класс элемента прокрутки для списка друзей
 class FriendsScrollerControlView : UIControl {
     
     //Элемент группировки
@@ -25,18 +27,15 @@ class FriendsScrollerControlView : UIControl {
         super.init(coder: coder)
     }
     
+    //Массив кнопок
     private var buttons: [UIButton] = []
     
+    //Массив букв для кнопок
     private var lettersArray : [Character] = []
-    
-//    var selectedLetter: Character? {
-//        didSet {
-//            sendActions(for: .valueChanged)
-//        }
-//    }
     
     weak var delegate : FriendsScrollerControlViewDelegate?
     
+    //Метод заполнения массива букв
     func setLetters (letters : [Character]) {
         for letter in letters {
             lettersArray.append(letter)
@@ -46,6 +45,7 @@ class FriendsScrollerControlView : UIControl {
     //Метод установки элементов
     func setupScrollerView() {
         
+        //Обходим массив букв и устанавливаем для каждой буквы свою кнопку
         for letter in lettersArray {
             let button = UIButton(type: .system)
             button.setTitle(String(letter).uppercased(), for: .normal)
@@ -58,16 +58,19 @@ class FriendsScrollerControlView : UIControl {
             
             buttons.append(button)
         }
+        //Разместим кнопки на элементе группировки
         stackView = UIStackView(arrangedSubviews: buttons)
-        
+        //Настроим элемент группировки
         stackView.spacing = 1
         stackView.axis = .vertical
         
         stackView.alignment = .center
         stackView.distribution = .fillEqually
         
+        //Добавляем на текущий View программно созданные элементы
         addSubview(stackView)
     }
+    
     //Обработчик нажатия буквы
     @objc func lettreSelected( _ button : UIButton){
         guard let index = buttons.firstIndex(of: button) else { return }

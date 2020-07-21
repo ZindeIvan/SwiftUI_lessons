@@ -74,7 +74,7 @@ class LikeControlView : UIControl {
         stackView.axis = .horizontal
         stackView.alignment = .leading
         stackView.distribution = .fill
-        // добавляем на текущий View программно созданные элементы
+        //Добавляем на текущий View программно созданные элементы
         addSubview(stackView)
         
     }
