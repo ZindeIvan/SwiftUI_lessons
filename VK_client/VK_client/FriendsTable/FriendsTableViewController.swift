@@ -12,15 +12,26 @@ import UIKit
 class FriendsViewController : UIViewController{
     @IBOutlet weak var friendsTableView: UITableView!
     
+    @IBOutlet weak var friendsScroller : FriendsScrollerControlView!
+    
     //Свойство содержащее массив друзей пользователя типа структура User
     private var friendsList : [User] = [
         User(userName: "Arthur Curry", userID: "aquaman"),
+        User(userName: "Barbara Gordon", userID: "batgirl"),
         User(userName: "Barry Allen", userID: "flash"),
+        User(userName: "Billy Batson", userID: "shazam"),
         User(userName: "Bruce Wayne", userID: "batman"),
         User(userName: "Clark Kent", userID: "superman"),
+        User(userName: "Damian Wayne", userID: "robin"),
+        User(userName: "Dinah Lance", userID: "blackcanary"),
         User(userName: "Diana Prince", userID: "wonderwoman"),
+        User(userName: "Dick Grayson", userID: "nightwing"),
+        User(userName: "John Constantine", userID: "hellblazer"),
         User(userName: "Hal Jordan", userID: "greenlantern"),
-        User(userName: "Victor Stone", userID: "cyborg")
+        User(userName: "Kendra Saunders", userID: "hawkgirl"),
+        User(userName: "Oliver Queen", userID: "greenarrow"),
+        User(userName: "Victor Stone", userID: "cyborg"),
+        User(userName: "Zatanna Zatara", userID: "zatanna")
     ]
     
     //Текущий выбранный индекс таблицы
@@ -30,6 +41,7 @@ class FriendsViewController : UIViewController{
         super.viewDidLoad()
         friendsTableView.dataSource = self
         friendsTableView.delegate = self
+        setupFriendsScroller()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,6 +58,20 @@ class FriendsViewController : UIViewController{
                 destination.friendID = friendsList[selectedRowIndex].userID
             }
         }
+    }
+    
+    func setupFriendsScroller (){
+        var letters : [Character] = []
+        for user in friendsList {
+            guard let letter = user.userName.first else { continue }
+            if !letters.contains(letter) {
+                letters.append(letter)
+            }
+        }
+        letters = letters.sorted()
+        friendsScroller.setLetters(letters: letters)
+        friendsScroller.setupScrollerView()
+        friendsScroller.delegate = self
     }
     
 }
@@ -82,5 +108,20 @@ extension FriendsViewController: UITableViewDataSource {
 
 extension FriendsViewController: UITableViewDelegate {
     
+}
+
+extension FriendsViewController : FriendsScrollerControlViewDelegate {
+    func scrollFriends(letter: Character) {
+        
+        let index = friendsList.firstIndex { (user) -> Bool in
+            if user.userName.first?.uppercased() == letter.uppercased() {
+                return true
+            }
+            return false
+        }
+        let indexPath = IndexPath(row: index! , section: 0)
+        
+        friendsTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+    }
 }
 
