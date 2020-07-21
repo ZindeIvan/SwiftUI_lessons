@@ -27,7 +27,8 @@ class FriendsPhotoCollectionViewController : UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotoCell", for: indexPath) as! FriendsPhotoCell
         //Установим фото друга в ячейке
         let imagePath : String = friendID == nil ? "error" : friendID! + "_photo\(indexPath.row)"
-        cell.friendPhotoImageView.image = UIImage(named: imagePath)
+        let image : UIImage = (UIImage(named: imagePath) == nil ? UIImage(named: "error") : UIImage(named: imagePath))!
+        cell.friendPhotoImageView.image = image
         return cell
     }
     
