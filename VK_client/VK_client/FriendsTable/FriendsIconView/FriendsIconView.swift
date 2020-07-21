@@ -55,6 +55,8 @@ import UIKit
     func configureLayer () {
         //Зададим скругленные края
         layer.cornerRadius = frame.height / 2
+        //Зададим форму тени
+        layer.shadowPath = UIBezierPath(ovalIn: bounds).cgPath
         //Зададим цвет тени
         layer.shadowColor = shadowColor.cgColor
         //Зададим прозрачность тени
@@ -67,9 +69,8 @@ import UIKit
     
 }
 
-
 //Клас для скругления иконки аватарки друга
-class IconView : UIView {
+class IconView : UIImageView {
     
     override class var layerClass: AnyClass{
         return CAShapeLayer.self
@@ -79,6 +80,6 @@ class IconView : UIView {
         //Зададим скругленные края
         layer.cornerRadius = frame.height / 2
         //Ограничим прорисовку контента за краями
-        layer.masksToBounds = true
+        clipsToBounds = true
     }
 }

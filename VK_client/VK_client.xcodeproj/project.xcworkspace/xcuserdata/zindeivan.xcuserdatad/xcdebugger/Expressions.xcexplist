@@ -49,16 +49,27 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "FriendsViewController.prepare(for:sender:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "test ">
+            </PersistentString>
+            <PersistentString
+               value = "friendsTableView.indexPath(for: sender as! UITableViewCell)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+            </PersistentString>
             <PersistentString
                value = "frame.maxX">
             </PersistentString>
             <PersistentString
                value = "frame.minX">
-            </PersistentString>
-            <PersistentString
-               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

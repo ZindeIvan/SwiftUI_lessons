@@ -9,7 +9,8 @@
 import UIKit
 
 //Класс для отображения списка друзей пользователя
-class FriendsTableViewController : UITableViewController{
+class FriendsViewController : UIViewController{
+    @IBOutlet weak var friendsTableView: UITableView!
     
     //Свойство содержащее массив друзей пользователя типа структура User
     private var friendsList : [User] = [
@@ -27,34 +28,13 @@ class FriendsTableViewController : UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        friendsTableView.dataSource = self
+        friendsTableView.delegate = self
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Возвращаем количество ячеек таблицы = количеству элементов массива friendsList
-        return friendsList.count
+    override func viewDidAppear(_ animated: Bool) {
+        friendsTableView.reloadData()
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableCell") as? FriendsTableCell else { fatalError() }
-        //Зададим надпись ячейки
-        cell.friendNameLabel.text = friendsList[indexPath.row].userName
-        //Установим иконку ячейки
-        cell.friendIconView.image = UIImage(named: friendsList[indexPath.row].userID + "_icon")
-        //Установим настройки тени иконки аватарки друга
-        cell.iconShadowView.configureLayer()
-        //Установим настройки скругления иконки аватарки друга
-        cell.iconView.configureLayer()
-        return cell
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        //Зададим переменную индекса выбранной ячейки
-        selectedRowIndex = indexPath.row
-        return indexPath
-    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -67,5 +47,40 @@ class FriendsTableViewController : UITableViewController{
             }
         }
     }
+    
+}
+
+extension FriendsViewController: UITableViewDataSource {    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Возвращаем количество ячеек таблицы = количеству элементов массива friendsList
+        return friendsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableCell") as? FriendsTableCell else { fatalError() }
+        //Зададим надпись ячейки
+        cell.friendNameLabel.text = friendsList[indexPath.row].userName
+        //Установим иконку ячейки
+        cell.iconImageView.image = UIImage(named: friendsList[indexPath.row].userID + "_icon")
+        //Установим настройки тени иконки аватарки друга
+        cell.iconShadowView.configureLayer()
+        //Установим настройки скругления иконки аватарки друга
+        cell.iconImageView.configureLayer()
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        //Зададим переменную индекса выбранной ячейки
+        selectedRowIndex = indexPath.row
+        return indexPath
+    }
+    
+}
+
+
+extension FriendsViewController: UITableViewDelegate {
+    
 }
 

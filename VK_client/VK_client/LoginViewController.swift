@@ -21,8 +21,8 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Сэкономим время для тестирования
-        //loginField.text = "admin"
-        //passwordField.text = "12345"
+        loginField.text = "admin"
+        passwordField.text = "12345"
     }
     
     override func viewWillAppear(_ animated: Bool) {

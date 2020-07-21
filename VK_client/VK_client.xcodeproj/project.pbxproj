@@ -109,6 +109,7 @@
 		B57E2D6F24B62F5D006CD7F3 /* FriendsTable */ = {
 			isa = PBXGroup;
 			children = (
+				B504562D24BA1C7900AEED5F /* FriendsIconView */,
 				B57E2D6D24B62D7A006CD7F3 /* FriendsTableViewController.swift */,
 				B57E2D7024B62F9A006CD7F3 /* FriendsTableCell.swift */,
 			);
@@ -134,7 +135,6 @@
 		B590EDD024AF67EA00179DEA /* VK_client */ = {
 			isa = PBXGroup;
 			children = (
-				B504562D24BA1C7900AEED5F /* FriendsIconView */,
 				B5476EDF24B8CD7800F7570C /* GroupsSearchTable */,
 				B5476EDA24B8CD0A00F7570C /* GroupsTable */,
 				B546E4A924B762AC0003FEA3 /* Model */,
