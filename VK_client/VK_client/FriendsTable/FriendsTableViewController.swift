@@ -51,6 +51,8 @@ class FriendsViewController : UIViewController{
         //Настроим элемент прокрутки
         setupFriendsScroller()
         
+        friendsTableView.register(UINib(nibName: "FriendsTableSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "sectionHeader")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,9 +125,21 @@ extension FriendsViewController: UITableViewDataSource {
         return sections.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //Возвращаем заголовки секций
-        return String(sectionsTitles[section])
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        //Возвращаем заголовки секций
+//        return String(sectionsTitles[section])
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let header = friendsTableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? FriendsTableSectionHeaderView else { fatalError() }
+        header.label.text = String(sectionsTitles[section])
+       
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
