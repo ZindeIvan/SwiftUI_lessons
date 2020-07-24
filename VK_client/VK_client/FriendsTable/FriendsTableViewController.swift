@@ -15,6 +15,8 @@ class FriendsViewController : UIViewController{
     //Элемент прокрутки
     @IBOutlet weak var friendsScroller : FriendsScrollerControlView!
     
+    @IBOutlet weak var friendsSearchBar : UISearchBar!
+    
     //Свойство содержащее массив друзей пользователя типа структура User
     private var friendsList : [User] = [
         User(userName: "Arthur Curry", userID: "aquaman"),
@@ -34,6 +36,9 @@ class FriendsViewController : UIViewController{
         User(userName: "Victor Stone", userID: "cyborg"),
         User(userName: "Zatanna Zatara", userID: "zatanna")
     ]
+    
+    private var friendsListSearchData : [User] = []
+    
     //Словарь секций
     var sections : [Character: [String]] = [:]
     //Массив заголовков секций
@@ -46,13 +51,16 @@ class FriendsViewController : UIViewController{
         super.viewDidLoad()
         friendsTableView.dataSource = self
         friendsTableView.delegate = self
+        friendsSearchBar.delegate = self
+        
+        friendsListSearchData = friendsList
+        
         //Настроим секции
-        setupSections ()
+        setupSections()
         //Настроим элемент прокрутки
         setupFriendsScroller()
         
         friendsTableView.register(UINib(nibName: "FriendsTableSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "sectionHeader")
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,21 +78,22 @@ class FriendsViewController : UIViewController{
                     fatalError()
                 }
                 //Получим индекс массива друзей по имени пользователя
-                let index = friendsList.firstIndex { (user) -> Bool in
+                let index = friendsListSearchData.firstIndex { (user) -> Bool in
                     if user.userName == username {
                         return true
                     }
                     return false
                 }
-                destination.friendID = friendsList[index!].userID
+                destination.friendID = friendsListSearchData[index!].userID
             }
         }
     }
     
     //Метод настройки секций
     func setupSections (){
+        sections = [:]
         //Обойдем массив пользователей
-        for user in friendsList {
+        for user in friendsListSearchData {
             //Возьмем первую букву имени пользователя
             let firstLetter = user.userName.first!
             //Если в массиве секций уже есть секция с такой буквой
@@ -148,7 +157,7 @@ extension FriendsViewController: UITableViewDataSource {
             fatalError()
         }
         //Найдем индекс друга в списке друзей
-        let index = friendsList.firstIndex { (user) -> Bool in
+        let index = friendsListSearchData.firstIndex { (user) -> Bool in
             if user.userName == username {
                 return true
             }
@@ -156,9 +165,9 @@ extension FriendsViewController: UITableViewDataSource {
         }
         
         //Зададим надпись ячейки
-        cell.friendNameLabel.text = friendsList[index!].userName
+        cell.friendNameLabel.text = friendsListSearchData[index!].userName
         //Установим иконку ячейки
-        cell.iconImageView.image = UIImage(named: friendsList[index!].userID + "_icon")
+        cell.iconImageView.image = UIImage(named: friendsListSearchData[index!].userID + "_icon")
         //Установим настройки тени иконки аватарки друга
         cell.iconShadowView.configureLayer()
         //Установим настройки скругления иконки аватарки друга
@@ -191,3 +200,25 @@ extension FriendsViewController : FriendsScrollerControlViewDelegate {
     }
 }
 
+extension FriendsViewController : UISearchBarDelegate{
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       
+        friendsSearchBar.text = ""
+        friendsListSearchData = friendsList
+        friendsSearchBar.endEditing(true)
+        setupSections()
+        friendsTableView.reloadData()
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        friendsListSearchData = searchText.isEmpty ? friendsList : friendsList.filter {
+            (user: User) -> Bool in
+                return user.userName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        setupSections()
+        friendsTableView.reloadData()
+    }
+}

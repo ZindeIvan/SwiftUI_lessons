@@ -14,5 +14,6 @@ class GroupsSearchTableCell : UITableViewCell {
     @IBOutlet weak var groupSearchIconView : UIImageView!
     //Название группы
     @IBOutlet weak var groupSearchNameLabel : UILabel!
+    
 }
 
