@@ -134,11 +134,6 @@ extension FriendsViewController: UITableViewDataSource {
         return sections.count
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        //Возвращаем заголовки секций
-//        return String(sectionsTitles[section])
-//    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         guard let header = friendsTableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? FriendsTableSectionHeaderView else { fatalError() }

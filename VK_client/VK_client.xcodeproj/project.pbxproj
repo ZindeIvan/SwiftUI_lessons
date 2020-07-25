@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B504562F24BA1D0100AEED5F /* FriendsIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B504562E24BA1D0100AEED5F /* FriendsIconView.swift */; };
+		B51BBD9524CBB61800FE2822 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BBD9424CBB61800FE2822 /* NewsTableViewController.swift */; };
+		B51BBD9724CBBA8100FE2822 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BBD9624CBBA8100FE2822 /* News.swift */; };
+		B51BBD9924CBBD6300FE2822 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51BBD9824CBBD6300FE2822 /* NewsCell.xib */; };
+		B51BBD9B24CBBD8E00FE2822 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51BBD9A24CBBD8E00FE2822 /* NewsCell.swift */; };
 		B526A99324C9F90E005A0965 /* FriendsTableSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B526A99224C9F90E005A0965 /* FriendsTableSectionHeaderView.xib */; };
 		B526A99524C9F93E005A0965 /* FriendsTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526A99424C9F93E005A0965 /* FriendsTableSectionHeaderView.swift */; };
 		B52F443F24C7182A00BB04D4 /* FriendsScrollerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F443E24C7182A00BB04D4 /* FriendsScrollerControlView.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		B504562E24BA1D0100AEED5F /* FriendsIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsIconView.swift; sourceTree = "<group>"; };
+		B51BBD9424CBB61800FE2822 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		B51BBD9624CBBA8100FE2822 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		B51BBD9824CBBD6300FE2822 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		B51BBD9A24CBBD8E00FE2822 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		B526A99224C9F90E005A0965 /* FriendsTableSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTableSectionHeaderView.xib; sourceTree = "<group>"; };
 		B526A99424C9F93E005A0965 /* FriendsTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		B52F443E24C7182A00BB04D4 /* FriendsScrollerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsScrollerControlView.swift; sourceTree = "<group>"; };
@@ -67,11 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B51BBD9324CBB5D100FE2822 /* NewsTable */ = {
+			isa = PBXGroup;
+			children = (
+				B51BBD9424CBB61800FE2822 /* NewsTableViewController.swift */,
+				B51BBD9824CBBD6300FE2822 /* NewsCell.xib */,
+				B51BBD9A24CBBD8E00FE2822 /* NewsCell.swift */,
+			);
+			path = NewsTable;
+			sourceTree = "<group>";
+		};
 		B546E4A924B762AC0003FEA3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B546E4AA24B762E10003FEA3 /* User.swift */,
 				B5476EE424B8D0D800F7570C /* Group.swift */,
+				B51BBD9624CBBA8100FE2822 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 				B546E4A924B762AC0003FEA3 /* Model */,
 				B57E2D6F24B62F5D006CD7F3 /* FriendsTable */,
 				B546E4AC24B76E510003FEA3 /* FriendsPhotoCollection */,
+				B51BBD9324CBB5D100FE2822 /* NewsTable */,
 				B590EDD524AF67EA00179DEA /* LoginViewController.swift */,
 				B590EDD724AF67EA00179DEA /* Main.storyboard */,
 				B590EDDC24AF67EB00179DEA /* LaunchScreen.storyboard */,
@@ -212,6 +232,7 @@
 			files = (
 				B590EDDE24AF67EB00179DEA /* LaunchScreen.storyboard in Resources */,
 				B590EDDB24AF67EB00179DEA /* Assets.xcassets in Resources */,
+				B51BBD9924CBBD6300FE2822 /* NewsCell.xib in Resources */,
 				B526A99324C9F90E005A0965 /* FriendsTableSectionHeaderView.xib in Resources */,
 				B590EDD924AF67EA00179DEA /* Main.storyboard in Resources */,
 			);
@@ -230,12 +251,15 @@
 				B5476EDE24B8CD6C00F7570C /* GroupsTableCell.swift in Sources */,
 				B5476EDC24B8CD3E00F7570C /* GroupsTableViewController.swift in Sources */,
 				B5476EE124B8CDA200F7570C /* GroupsSearchTableViewController.swift in Sources */,
+				B51BBD9724CBBA8100FE2822 /* News.swift in Sources */,
 				B504562F24BA1D0100AEED5F /* FriendsIconView.swift in Sources */,
 				B546E4AB24B762E10003FEA3 /* User.swift in Sources */,
+				B51BBD9524CBB61800FE2822 /* NewsTableViewController.swift in Sources */,
 				B5476EE524B8D0D800F7570C /* Group.swift in Sources */,
 				B590EDD224AF67EA00179DEA /* AppDelegate.swift in Sources */,
 				B57E2D6E24B62D7A006CD7F3 /* FriendsTableViewController.swift in Sources */,
 				B526A99524C9F93E005A0965 /* FriendsTableSectionHeaderView.swift in Sources */,
+				B51BBD9B24CBBD8E00FE2822 /* NewsCell.swift in Sources */,
 				B5483CBA24BB3EAF002B57B8 /* LikeControlView.swift in Sources */,
 				B590EDD424AF67EA00179DEA /* SceneDelegate.swift in Sources */,
 				B546E4B024B76EC10003FEA3 /* FriendsPhotoCell.swift in Sources */,
