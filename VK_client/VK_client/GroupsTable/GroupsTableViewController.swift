@@ -11,24 +11,39 @@ import UIKit
 //Класс для отображения списка групп пользователя
 class GroupsTableViewController : UITableViewController {
     
+    @IBOutlet weak var groupsSearchBar : UISearchBar!
+    
     //Свойство содержащее массив групп пользователя типа структура Group
     private var groupsList : [Group] = []
     
+    private var groupsListSearchData : [Group] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupsSearchBar.delegate = self
+        groupsListSearchData = groupsList
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupsSearchBar.text = ""
+        groupsListSearchData = groupsList
+        groupsSearchBar.endEditing(true)
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Возвращаем количество ячеек таблицы = количеству элементов массива groupsList
-        return groupsList.count
+        return groupsListSearchData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsTableCell") as? GroupsTableCell else { fatalError() }
         //Зададим надпись ячейки
-        cell.groupNameLabel.text = groupsList[indexPath.row].groupName
+        cell.groupNameLabel.text = groupsListSearchData[indexPath.row].groupName
         //Установим иконку ячейки
-        cell.groupIconView.image = UIImage(named: groupsList[indexPath.row].groupID + "_icon")
+        cell.groupIconView.image = UIImage(named: groupsListSearchData[indexPath.row].groupID + "_icon")
         
         return cell
     }
@@ -38,9 +53,12 @@ class GroupsTableViewController : UITableViewController {
         //Если действие - удаление
         if editingStyle == .delete {
             //Удалим группу из массива групп пользователя
-            groupsList.remove(at: indexPath.row)
+            let group = groupsListSearchData[indexPath.row]
+            groupsListSearchData.remove(at: indexPath.row)
             //Удалим ячейку из таблицы
             tableView.deleteRows(at: [indexPath], with: .fade)
+            guard let index = groupsList.firstIndex(of: group) else {return}
+            groupsList.remove(at: index)
         }
     }
     
@@ -60,6 +78,8 @@ class GroupsTableViewController : UITableViewController {
                     groupsList.append(group)
                     //Отсортируем список
                     groupsList = groupsList.sorted()
+                    
+                    groupsListSearchData = groupsList
                     //Обновим таблиц
                     tableView.reloadData()
                 }
@@ -68,3 +88,21 @@ class GroupsTableViewController : UITableViewController {
         }
     }
 }
+
+extension GroupsTableViewController : UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        groupsSearchBar.text = ""
+        groupsListSearchData = groupsList
+        groupsSearchBar.endEditing(true)
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        groupsListSearchData = searchText.isEmpty ? groupsList : groupsList.filter {
+            (group: Group) -> Bool in
+            return group.groupName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        tableView.reloadData()
+    }
+}
+

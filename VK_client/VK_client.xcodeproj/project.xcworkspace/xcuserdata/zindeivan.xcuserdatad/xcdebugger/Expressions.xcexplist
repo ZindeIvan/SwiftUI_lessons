@@ -11,6 +11,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GroupsTableViewController.tableView(_:cellForRowAt:):GroupsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "groupsListSearchData">
+            </PersistentString>
+            <PersistentString
+               value = "groupsList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsScrollerControlView.layoutSubviews():FriendsScrollerControlView.swift">
          <PersistentStrings>
             <PersistentString
@@ -36,10 +47,24 @@
                value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
             <PersistentString
-               value = "frame.minX">
+               value = "frame.maxX">
             </PersistentString>
             <PersistentString
-               value = "frame.maxX">
+               value = "frame.minX">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FriendsViewController.tableView(_:cellForRowAt:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "friendsListSearchData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -115,17 +140,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FriendsScrollerControlView.setupView():FriendsScrollerControlView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "buttons">
-            </PersistentString>
-            <PersistentString
-               value = "lettersArray">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "FriendsScrollerControlView.setupScrollerView():FriendsScrollerControlView.swift">
          <PersistentStrings>
             <PersistentString
@@ -133,6 +147,17 @@
             </PersistentString>
             <PersistentString
                value = "lettersArray ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FriendsScrollerControlView.setupView():FriendsScrollerControlView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "buttons">
+            </PersistentString>
+            <PersistentString
+               value = "lettersArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
