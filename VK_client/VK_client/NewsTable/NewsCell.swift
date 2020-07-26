@@ -8,6 +8,10 @@
 
 import UIKit
 
+//protocol NewsCellDelegate : class {
+//    func newsCell(cell: NewsCell, didTappedThe button:UIButton?)
+//}
+
 class NewsCell : UITableViewCell {
     
     @IBOutlet weak var newsIconView : UIImageView!
@@ -21,9 +25,35 @@ class NewsCell : UITableViewCell {
     @IBOutlet weak var likeLabel : UILabel!
     @IBOutlet weak var watchedCountLabel : UILabel!
     
-    private var likePressed : Bool = false
+//    weak var newsCellDelegate : NewsCellDelegate?
     
-    var likeCount : Int = Int.random(in: 0 ..< 100) {
+    private var likePressed : Bool = false{
+        didSet {
+            
+            if likePressed {
+                //Увеличим количество лайков на 1
+                likeCount += 1
+                //Установим картинку заполненного сердца
+                likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                //Изменим цвет элементов
+                likeLabel.textColor = .red
+                likeButton.tintColor = .red
+            }
+                //Если лайк отжат
+            else {
+                //Уменьшим количество лайков на 1
+                likeCount -= 1
+                //Установим картинку пустого сердца
+                likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                //Изменим цвет элементов
+                likeLabel.textColor = .gray
+                likeButton.tintColor = .gray
+            }
+        }
+        
+    }
+    
+    var likeCount : Int = 0{
         didSet {
             //Обновим количество лайков
             likeLabel.text = String(likeCount)
@@ -31,28 +61,11 @@ class NewsCell : UITableViewCell {
     }
     
     @IBAction func likeButtonPressed(_ sender: Any) {
+//        newsCellDelegate?.newsCell(cell: self, didTappedThe: sender as? UIButton)
         likePressed = !likePressed
-        
-        if likePressed {
-            //Увеличим количество лайков на 1
-            likeCount += 1
-            //Установим картинку заполненного сердца
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            //Изменим цвет элементов
-            likeLabel.textColor = .red
-            likeButton.tintColor = .red
-        }
-        //Если лайк отжат
-        else {
-            //Уменьшим количество лайков на 1
-            likeCount -= 1
-            //Установим картинку пустого сердца
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            //Изменим цвет элементов
-            likeLabel.textColor = .gray
-            likeButton.tintColor = .gray
-        }
-        
     }
     
+//    func changeLikeState(){
+//        likePressed = !likePressed
+//    }
 }

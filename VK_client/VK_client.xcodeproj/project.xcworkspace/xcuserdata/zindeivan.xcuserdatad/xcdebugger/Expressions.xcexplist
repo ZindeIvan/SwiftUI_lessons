@@ -3,10 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "FriendsViewController.scrollFriends(letter:):FriendsTableViewController.swift">
+         contextName = "FriendsTableViewController.prepare(for:sender:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sections">
+               value = "FriendsList[selectedRowIndex].userID">
+            </PersistentString>
+            <PersistentString
+               value = "selectedRowIndex">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,6 +25,25 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "FriendsViewController.scrollFriends(letter:):FriendsTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sections">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LikeControlView.setupView():LikeControlView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(likeCount)">
+            </PersistentString>
+            <PersistentString
+               value = "likeCountLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsScrollerControlView.layoutSubviews():FriendsScrollerControlView.swift">
          <PersistentStrings>
             <PersistentString
@@ -29,6 +51,17 @@
             </PersistentString>
             <PersistentString
                value = "stackView.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginController.addLoginAnimationViews():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginAnimationView.frame">
+            </PersistentString>
+            <PersistentString
+               value = "firstLoginCircle.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,10 +80,10 @@
                value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
             <PersistentString
-               value = "frame.maxX">
+               value = "frame.minX">
             </PersistentString>
             <PersistentString
-               value = "frame.minX">
+               value = "frame.maxX">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -65,6 +98,14 @@
             </PersistentString>
             <PersistentString
                value = "friendsListSearchData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewsCell.likeCount.didset:NewsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "likeCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -88,6 +129,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NewsCell.likePressed.didset:NewsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "likeCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsViewController.prepare(for:sender:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -107,35 +156,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
+         contextName = "NewsCell.likeButtonPressed(_:):NewsCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "loginSegueName">
-            </PersistentString>
-            <PersistentString
-               value = "identifier == loginSegueName">
+               value = "likeCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FriendsTableViewController.prepare(for:sender:):FriendsTableViewController.swift">
+         contextName = "FriendsScrollerControlView.setupView():FriendsScrollerControlView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "FriendsList[selectedRowIndex].userID">
+               value = "buttons">
             </PersistentString>
             <PersistentString
-               value = "selectedRowIndex">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "LikeControlView.setupView():LikeControlView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "String(likeCount)">
-            </PersistentString>
-            <PersistentString
-               value = "likeCountLabel">
+               value = "lettersArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -151,13 +186,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FriendsScrollerControlView.setupView():FriendsScrollerControlView.swift">
+         contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "buttons">
+               value = "loginSegueName">
             </PersistentString>
             <PersistentString
-               value = "lettersArray">
+               value = "identifier == loginSegueName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

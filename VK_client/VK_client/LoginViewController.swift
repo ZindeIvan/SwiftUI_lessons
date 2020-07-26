@@ -15,6 +15,14 @@ class LoginController: UIViewController {
     //Элемент поля ввода логина
     @IBOutlet weak var loginField: UITextField!
     
+    @IBOutlet weak var loginAnimationView : UIView!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var firstLoginCircle : UIView = UIView()
+    var secondLoginCircle : UIView = UIView()
+    var thirdLoginCircle : UIView = UIView()
+    
     //Название перехода для входа
     let loginSegueName : String = "LoginSegue"
     
@@ -34,6 +42,7 @@ class LoginController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
+        
     }
     
     @objc func keyboardWillShown(notification: Notification) {
@@ -85,18 +94,102 @@ class LoginController: UIViewController {
     }
     
    //Метод  проверки перехода на экран приложения
-   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard identifier == loginSegueName else {return true }
-        //Если проверка логина и пароля пройдена - осуществить переход
+//   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        guard identifier == loginSegueName else {return true }
+//        //Если проверка логина и пароля пройдена - осуществить переход
+//        if checkLoginInfo() {
+//
+//        return true
+//        }
+//        //Если проверка не пройдена отобразить ошибку
+//        else {
+//            showLoginError()
+//            return false
+//        }
+//
+//    }
+    
+    
+    @IBAction func loginAction(_ sender: Any) {
+        
+        addLoginAnimationViews()
+        
+        self.loginButton.isHidden = true
+        
         if checkLoginInfo() {
-            return true
+            performLoginAnimation(repeatCounter: 0, maxRepeatCount: 5)
+
         }
-        //Если проверка не пройдена отобразить ошибку
+            //Если проверка не пройдена отобразить ошибку
         else {
             showLoginError()
-            return false
         }
+    }
+    
+    
+}
 
+extension LoginController {
+    func addLoginAnimationViews(){
+        
+        let circleRadius : CGFloat = 10
+        let dx = loginAnimationView.frame.width/3
+        let circleBackgroundColor = UIColor.gray
+        
+        firstLoginCircle.frame = CGRect(x: dx - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
+        secondLoginCircle.frame = CGRect(x: dx * 2 - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
+        thirdLoginCircle.frame = CGRect(x: dx * 3 - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
+        
+        firstLoginCircle.layer.cornerRadius = firstLoginCircle.frame.height / 2
+        secondLoginCircle.layer.cornerRadius = secondLoginCircle.frame.height / 2
+        thirdLoginCircle.layer.cornerRadius = thirdLoginCircle.frame.height / 2
+        
+        firstLoginCircle.backgroundColor = circleBackgroundColor
+        secondLoginCircle.backgroundColor = circleBackgroundColor
+        thirdLoginCircle.backgroundColor = circleBackgroundColor
+        
+        loginAnimationView.addSubview(firstLoginCircle)
+        loginAnimationView.addSubview(secondLoginCircle)
+        loginAnimationView.addSubview(thirdLoginCircle)
+        
     }
 }
 
+extension LoginController {
+   
+    func performLoginAnimation(repeatCounter : Int, maxRepeatCount : Int){
+        
+        let duration : TimeInterval = 0.3
+        UIView.animate(withDuration: duration,delay: 0,
+                       animations: {
+                        self.thirdLoginCircle.alpha = 1
+                        self.firstLoginCircle.alpha = 0
+                        
+        }) {(result) in
+            
+            UIView.animate(withDuration: duration,delay: 0,
+                           animations: {
+                            self.secondLoginCircle.alpha = 0
+                            self.firstLoginCircle.alpha = 1
+                            
+            }) {(result) in
+                
+                UIView.animate(withDuration: duration,delay: 0,
+                               animations: {
+                                self.thirdLoginCircle.alpha = 0
+                                self.secondLoginCircle.alpha = 1
+                                
+                }) {(result) in
+                    if repeatCounter == maxRepeatCount {
+                        self.thirdLoginCircle.alpha = 1
+                        self.performSegue(withIdentifier: self.loginSegueName, sender: self)
+                    }
+                    else {
+                        let repeatCounter = repeatCounter + 1
+                        self.performLoginAnimation(repeatCounter: repeatCounter, maxRepeatCount: maxRepeatCount)
+                    }
+                }
+            }
+        }
+    }
+}

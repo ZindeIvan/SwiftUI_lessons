@@ -12,7 +12,9 @@ struct News {
     
     let newsID : String
     let newsWatchedCount : Int
+    let likeCount : Int
     let newsOwner : String
     let newsDate : String
     let newsText : String
+    
 }
