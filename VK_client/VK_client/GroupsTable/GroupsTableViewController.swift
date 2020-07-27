@@ -10,26 +10,31 @@ import UIKit
 
 //Класс для отображения списка групп пользователя
 class GroupsTableViewController : UITableViewController {
-    
+    //Элемент поиска
     @IBOutlet weak var groupsSearchBar : UISearchBar!
     
     //Свойство содержащее массив групп пользователя типа структура Group
     private var groupsList : [Group] = []
-    
+    //Свойство содержащее массив групп отобранных при помощи поиска
     private var groupsListSearchData : [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Укажем текущий класс делегат для строки поиска
         groupsSearchBar.delegate = self
+        //В качестве массив групп отобранных при помощи поиска укажем все элементы массива данных
         groupsListSearchData = groupsList
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //Уберем текст в строке поиска
         groupsSearchBar.text = ""
+        //В качестве массив групп отобранных при помощи поиска укажем все элементы массива данных
         groupsListSearchData = groupsList
         groupsSearchBar.endEditing(true)
+        //Перезагрузим данные таблицы
         tableView.reloadData()
     }
     
@@ -78,7 +83,7 @@ class GroupsTableViewController : UITableViewController {
                     groupsList.append(group)
                     //Отсортируем список
                     groupsList = groupsList.sorted()
-                    
+                    //В качестве массив групп отобранных при помощи поиска укажем все элементы массива данных
                     groupsListSearchData = groupsList
                     //Обновим таблиц
                     tableView.reloadData()
@@ -89,19 +94,28 @@ class GroupsTableViewController : UITableViewController {
     }
 }
 
+//Расширение для строки поиска
 extension GroupsTableViewController : UISearchBarDelegate {
+    
+    //Метод обработки нажатия кнопки Отмена
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        //Уберем текст в строке поиска
         groupsSearchBar.text = ""
+        //В качестве массив групп отобранных при помощи поиска укажем все элементы массива данных
         groupsListSearchData = groupsList
         groupsSearchBar.endEditing(true)
+        //Перезагрузим данные таблицы
         tableView.reloadData()
     }
     
+    //Метод обработки ввода текста в строку поиска
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //Заполним массив групп отобранных при помощи поиска при помощи замыкания
         groupsListSearchData = searchText.isEmpty ? groupsList : groupsList.filter {
             (group: Group) -> Bool in
             return group.groupName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
+        //Перезагрузим данные таблицы
         tableView.reloadData()
     }
 }

@@ -9,28 +9,28 @@
 import UIKit
 
 //Настраиваемый Класс для отображения тени под иконкой аватарки друга
-@IBDesignable class IconShadowView : UIView {
+class IconShadowView : UIView {
     
     override class var layerClass: AnyClass{
         return CAShapeLayer.self
     }
     
     //Цвет тени
-    @IBInspectable var shadowColor : UIColor = .black {
+    var shadowColor : UIColor = .black {
         didSet{
             updateShadowColor()
         }
     }
     
     //Прозрачность тени
-    @IBInspectable var shadowOpacity : Float = 0.8 {
+    var shadowOpacity : Float = 0.8 {
         didSet {
             updateShadowOpasity()
         }
     }
     
     //Радиус(размер) тени
-    @IBInspectable var shadowRadius : CGFloat = 6 {
+    var shadowRadius : CGFloat = 6 {
         didSet {
             updateShadowRadius()
         }

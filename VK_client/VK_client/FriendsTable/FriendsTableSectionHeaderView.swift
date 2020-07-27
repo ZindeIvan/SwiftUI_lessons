@@ -8,7 +8,7 @@
 
 import UIKit
 
+//Клас Заголовок секций таблицы друзей
 class FriendsTableSectionHeaderView : UITableViewHeaderFooterView {
     @IBOutlet weak var label : UILabel!
-    
 }
