@@ -8,11 +8,13 @@
 
 import UIKit
 
+//Класс экрана новостей
 class NewsTableViewController : UIViewController {
 
-    
+    //Таблица новостей
     @IBOutlet weak var newsTableView : UITableView!
     
+    //Массив новостей
     private var newsList : [News] = [
     
         News(newsID: "news1", newsWatchedCount: 1321, likeCount: 32, newsOwner: "Daly planet", newsDate:  "12.05.2020", newsText: "The object, known as Comet, was discovered by an instrument floating in space and it is falling towards the Earth. As it gets closer, the comet should be visible in the Southern Hemisphere just before sunrise, without any equipment."),
@@ -26,9 +28,8 @@ class NewsTableViewController : UIViewController {
         
         newsTableView.dataSource = self
         newsTableView.delegate = self
-        
+        //Зарегистрируем ячейку таблицы
         newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        
         newsTableView.rowHeight = UITableView.automaticDimension
         
     }
@@ -36,23 +37,31 @@ class NewsTableViewController : UIViewController {
 }
 
 extension NewsTableViewController : UITableViewDataSource, UITableViewDelegate  {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Возвращаем количество строк таблицы
         newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as? NewsCell else { fatalError() }
-        //Зададим надпись ячейки
+        //Установим автора
         cell.newsOwner.text = newsList[indexPath.row].newsOwner
-        //Установим иконку ячейки
+        //Установим текст новости
         cell.newsText.text = newsList[indexPath.row].newsText
+        //Установим дату новости
         cell.newsDate.text = newsList[indexPath.row].newsDate
+        //Установим количество просмотров
         cell.watchedCountLabel.text = String(newsList[indexPath.row].newsWatchedCount)
-        cell.likeLabel.text = String(Int.random(in: 0 ..< 100))
+        //Установим надписьлайков
+        cell.likeLabel.text = String(newsList[indexPath.row].likeCount)
+        //Установим иконку новости
         cell.newsIconView.image = UIImage(named: newsList[indexPath.row].newsID + "_icon")
+        //Установим картинку новости
         cell.newsImage.image = UIImage(named: newsList[indexPath.row].newsID + "_image")
+        //Установим количество лайков
         cell.likeCount = newsList[indexPath.row].likeCount
-//        cell.newsCellDelegate = self
+        
         return cell
     }
     
@@ -64,9 +73,3 @@ extension NewsTableViewController : UITableViewDataSource, UITableViewDelegate  
     
 }
 
-//extension NewsTableViewController : NewsCellDelegate {
-//    func newsCell(cell: NewsCell, didTappedThe button: UIButton?) {
-////        guard let indexPath = newsTableView.indexPath(for: cell) else  { return }
-//        cell.changeLikeState()
-//    }
-//}

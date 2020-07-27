@@ -14,7 +14,23 @@ class LikeControlView : UIControl {
     var likeCount : Int = Int.random(in: 0 ..< 100) {
         didSet {
             //Обновим количество лайков
-            likeCountLabel.text = String(likeCount)
+            //Зададим анимацию смены текста
+            let animationType : AnimationOptions
+            //Если старое значение меньше - справа и слева в обратном случае
+            if  oldValue < likeCount {
+                animationType = .transitionFlipFromRight
+            }
+            else {
+                animationType = .transitionFlipFromLeft
+            }
+            //Зададим анимацию смены текста
+            UIView.transition(with: self.likeCountLabel,
+                              duration: 0.5,
+                              options: animationType,
+                              animations: {
+                                self.likeCountLabel.text = String(self.likeCount)
+            })
+            
         }
     }
     //Лайк отмечен

@@ -14,7 +14,7 @@ class FriendsViewController : UIViewController{
     @IBOutlet weak var friendsTableView: UITableView!
     //Элемент прокрутки
     @IBOutlet weak var friendsScroller : FriendsScrollerControlView!
-    
+    //Элемент поиска
     @IBOutlet weak var friendsSearchBar : UISearchBar!
     
     //Свойство содержащее массив друзей пользователя типа структура User
@@ -37,6 +37,7 @@ class FriendsViewController : UIViewController{
         User(userName: "Zatanna Zatara", userID: "zatanna")
     ]
     
+    //Свойство содержащее массив друзей отобранных при помощи поиска
     private var friendsListSearchData : [User] = []
     
     //Словарь секций
@@ -52,14 +53,13 @@ class FriendsViewController : UIViewController{
         friendsTableView.dataSource = self
         friendsTableView.delegate = self
         friendsSearchBar.delegate = self
-        
+        //В качестве массив друзей отобранных при помощи поиска укажем все элементы массива данных
         friendsListSearchData = friendsList
-        
         //Настроим секции
         setupSections()
         //Настроим элемент прокрутки
         setupFriendsScroller()
-        
+        //Зарегистрируем Заголовок секций
         friendsTableView.register(UINib(nibName: "FriendsTableSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
     
@@ -135,7 +135,7 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+        //Возвращаем заголовк секции
         guard let header = friendsTableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as? FriendsTableSectionHeaderView else { fatalError() }
         header.label.text = String(sectionsTitles[section])
        
@@ -143,6 +143,7 @@ extension FriendsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        //Возвращаем высоту заголовка секции
         return 40
     }
     
@@ -195,25 +196,33 @@ extension FriendsViewController : FriendsScrollerControlViewDelegate {
     }
 }
 
+//Расширение для строки поиска
 extension FriendsViewController : UISearchBarDelegate{
     
+    //Метод обработки нажатия кнопки Отмена
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       
+        //Уберем текст в строке поиска
         friendsSearchBar.text = ""
+        //В качестве массив друзей отобранных при помощи поиска укажем все элементы массива данных
         friendsListSearchData = friendsList
         friendsSearchBar.endEditing(true)
+        //Вызовем метод настройки секций
         setupSections()
+        //Перезагрузим данные таблицы
         friendsTableView.reloadData()
         
     }
     
+    //Метод обработки ввода текста в строку поиска
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        //Заполним массив друзей отобранных при помощи поиска при помощи замыкания
         friendsListSearchData = searchText.isEmpty ? friendsList : friendsList.filter {
             (user: User) -> Bool in
                 return user.userName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
+        //Вызовем метод настройки секций
         setupSections()
+        //Перезагрузим данные таблицы
         friendsTableView.reloadData()
     }
 }

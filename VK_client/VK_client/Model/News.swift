@@ -8,13 +8,19 @@
 
 import Foundation
 
+//Класс Новости
 struct News {
-    
+    //Идентификатор новости
     let newsID : String
+    //Количество просмотров
     let newsWatchedCount : Int
+    //Количество отметок Нравится
     let likeCount : Int
+    //Автор новости
     let newsOwner : String
+    //Дата Новости
     let newsDate : String
+    //Текст Новости
     let newsText : String
     
 }

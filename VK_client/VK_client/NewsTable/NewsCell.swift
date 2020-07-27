@@ -25,8 +25,6 @@ class NewsCell : UITableViewCell {
     @IBOutlet weak var likeLabel : UILabel!
     @IBOutlet weak var watchedCountLabel : UILabel!
     
-//    weak var newsCellDelegate : NewsCellDelegate?
-    
     private var likePressed : Bool = false{
         didSet {
             
@@ -56,16 +54,27 @@ class NewsCell : UITableViewCell {
     var likeCount : Int = 0{
         didSet {
             //Обновим количество лайков
-            likeLabel.text = String(likeCount)
+            //Зададим анимацию смены текста
+            let animationType : AnimationOptions
+            //Если старое значение меньше - справа и слева в обратном случае
+            if  oldValue < likeCount {
+                animationType = .transitionFlipFromRight
+            }
+            else {
+                animationType = .transitionFlipFromLeft
+            }
+            //Зададим анимацию смены текста
+            UIView.transition(with: self.likeLabel,
+                              duration: 0.5,
+                              options: animationType,
+                              animations: {
+                                self.likeLabel.text = String(self.likeCount)
+            })
         }
     }
-    
+    //Метод нажатия лайка
     @IBAction func likeButtonPressed(_ sender: Any) {
-//        newsCellDelegate?.newsCell(cell: self, didTappedThe: sender as? UIButton)
         likePressed = !likePressed
     }
     
-//    func changeLikeState(){
-//        likePressed = !likePressed
-//    }
 }

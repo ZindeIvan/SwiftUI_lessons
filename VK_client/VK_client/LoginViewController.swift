@@ -14,11 +14,12 @@ class LoginController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     //Элемент поля ввода логина
     @IBOutlet weak var loginField: UITextField!
-    
+    //Элемент анимации загрузки при входе
     @IBOutlet weak var loginAnimationView : UIView!
-    
+    //Кнопка входа
     @IBOutlet weak var loginButton: UIButton!
     
+    //Зададим элементы анимации загрузки при входе
     var firstLoginCircle : UIView = UIView()
     var secondLoginCircle : UIView = UIView()
     var thirdLoginCircle : UIView = UIView()
@@ -93,31 +94,16 @@ class LoginController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-   //Метод  проверки перехода на экран приложения
-//   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        guard identifier == loginSegueName else {return true }
-//        //Если проверка логина и пароля пройдена - осуществить переход
-//        if checkLoginInfo() {
-//
-//        return true
-//        }
-//        //Если проверка не пройдена отобразить ошибку
-//        else {
-//            showLoginError()
-//            return false
-//        }
-//
-//    }
-    
     
     @IBAction func loginAction(_ sender: Any) {
-        
+        //Добавим элементы анимации входа
         addLoginAnimationViews()
-        
+        //Спрячем кнопку
         self.loginButton.isHidden = true
-        
+        //Проверим данные входа
         if checkLoginInfo() {
-            performLoginAnimation(repeatCounter: 0, maxRepeatCount: 5)
+            //Запустим анимацию входа
+            performLoginAnimation(repeatCounter: 1, maxRepeatCount: 3)
 
         }
             //Если проверка не пройдена отобразить ошибку
@@ -128,26 +114,32 @@ class LoginController: UIViewController {
     
     
 }
-
+//Расширение настройки анимации входа
 extension LoginController {
+    //Метод настройки элементов анимации входа
     func addLoginAnimationViews(){
         
+        loginAnimationView.isHidden = false
+        //Зададим радиус кружков
         let circleRadius : CGFloat = 10
+        //Зададим центры кругов
         let dx = loginAnimationView.frame.width/3
+        //Зададим цвет кругов
         let circleBackgroundColor = UIColor.gray
-        
+        //Установим круги
         firstLoginCircle.frame = CGRect(x: dx - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
         secondLoginCircle.frame = CGRect(x: dx * 2 - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
         thirdLoginCircle.frame = CGRect(x: dx * 3 - circleRadius*3, y: loginAnimationView.frame.height/2 - circleRadius, width: circleRadius * 2, height: circleRadius * 2)
         
+        //Настроим скругление
         firstLoginCircle.layer.cornerRadius = firstLoginCircle.frame.height / 2
         secondLoginCircle.layer.cornerRadius = secondLoginCircle.frame.height / 2
         thirdLoginCircle.layer.cornerRadius = thirdLoginCircle.frame.height / 2
-        
+        //Настроим цвета
         firstLoginCircle.backgroundColor = circleBackgroundColor
         secondLoginCircle.backgroundColor = circleBackgroundColor
         thirdLoginCircle.backgroundColor = circleBackgroundColor
-        
+        //Добавляем элементы
         loginAnimationView.addSubview(firstLoginCircle)
         loginAnimationView.addSubview(secondLoginCircle)
         loginAnimationView.addSubview(thirdLoginCircle)
@@ -155,35 +147,43 @@ extension LoginController {
     }
 }
 
+//Расширение выполнения анимации входа
 extension LoginController {
    
+    //Метод выполнения анимации входа
     func performLoginAnimation(repeatCounter : Int, maxRepeatCount : Int){
-        
+        //Установим интервал анимации
         let duration : TimeInterval = 0.3
+        //Добавим анимацию первого круга
         UIView.animate(withDuration: duration,delay: 0,
                        animations: {
                         self.thirdLoginCircle.alpha = 1
                         self.firstLoginCircle.alpha = 0
                         
         }) {(result) in
-            
+            //Добавим анимацию второго круга
             UIView.animate(withDuration: duration,delay: 0,
                            animations: {
                             self.secondLoginCircle.alpha = 0
                             self.firstLoginCircle.alpha = 1
                             
             }) {(result) in
-                
+                //Добавим анимацию третьего круга
                 UIView.animate(withDuration: duration,delay: 0,
                                animations: {
                                 self.thirdLoginCircle.alpha = 0
                                 self.secondLoginCircle.alpha = 1
                                 
                 }) {(result) in
+                    //Проверим если счетчик повторений дошел до заданного количества повторений
                     if repeatCounter == maxRepeatCount {
                         self.thirdLoginCircle.alpha = 1
+                        //Выполним переход на следующий экран
                         self.performSegue(withIdentifier: self.loginSegueName, sender: self)
+                        self.loginButton.isHidden = false
+                        self.loginAnimationView.isHidden = true
                     }
+                    //Вызовем рекурсивно функцию анимации с увеличенным счетчиком
                     else {
                         let repeatCounter = repeatCounter + 1
                         self.performLoginAnimation(repeatCounter: repeatCounter, maxRepeatCount: maxRepeatCount)
