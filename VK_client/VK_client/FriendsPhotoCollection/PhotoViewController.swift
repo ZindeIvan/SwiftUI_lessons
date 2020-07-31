@@ -29,7 +29,6 @@ class PhotoViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Установим фото друга
         
         let imagePath : String = (friendID == nil || friendPhotoCount == nil || friendPhotoID == nil) ? "error" : friendID! + "_photo\(friendPhotoID!)"
         
@@ -40,6 +39,7 @@ class PhotoViewController : UIViewController {
         photoImageView.isUserInteractionEnabled = true
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         photoImageView.addGestureRecognizer(panGesture)
+        newPhotoImageView.isHidden = true
  
     }
     
@@ -68,24 +68,26 @@ class PhotoViewController : UIViewController {
             }
 
             if rightToLeftSwipe {
-                newPhotoImageView.transform = CGAffineTransform(translationX: photoImageView.frame.width, y: 0)
+                newPhotoImageView.transform = CGAffineTransform(translationX: photoImageView.frame.width + 100, y: 0)
 
             }
             else{
-                newPhotoImageView.transform = CGAffineTransform(translationX: -photoImageView.frame.width, y: 0)
+                newPhotoImageView.transform = CGAffineTransform(translationX: -photoImageView.frame.width - 100, y: 0)
 
             }
             
             
             newPhotoImageView.image = UIImage(named: friendID! + "_photo\(newPhotoID)")
             
-            
             interactiveAnimator?.startAnimation()
+
             interactiveAnimator = UIViewPropertyAnimator(duration: 0.5,
-                                                         dampingRatio: 0.5,
+                                                         curve: .easeIn,
                                                          animations: {
                                                             
+                                                            self.newPhotoImageView.isHidden = false
                                                             if rightToLeftSwipe {
+                                                                
                                                                 self.photoImageView.transform = CGAffineTransform(translationX: -self.photoImageView.frame.width, y: 0)
                                                                 self.newPhotoImageView.transform = CGAffineTransform(translationX: -self.newPhotoImageView.frame.width, y: 0)
                                                             }
@@ -106,6 +108,7 @@ class PhotoViewController : UIViewController {
             friendPhotoID = newPhotoID
             photoImageView.transform = .identity
             newPhotoImageView.transform = .identity
+            newPhotoImageView.isHidden = true
             
         default:
             return
