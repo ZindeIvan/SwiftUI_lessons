@@ -3,6 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PhotoViewController.viewDidLoad():PhotoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendPhotoCount">
+            </PersistentString>
+            <PersistentString
+               value = "image">
+            </PersistentString>
+            <PersistentString
+               value = "friendID">
+            </PersistentString>
+            <PersistentString
+               value = "friendPhotoID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsViewController.prepare(for:sender:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -33,6 +50,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "FriendsPhotoCollectionViewController.prepare(for:sender:):FriendsPhotoCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewsCell.likeCount.didset:NewsCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,13 +69,13 @@
          contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+               value = "frame.minX">
             </PersistentString>
             <PersistentString
                value = "frame.maxX">
             </PersistentString>
             <PersistentString
-               value = "frame.minX">
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -58,13 +83,13 @@
          contextName = "FriendsViewController.tableView(_:cellForRowAt:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.section">
+               value = "friendsListSearchData">
             </PersistentString>
             <PersistentString
                value = "indexPath.row">
             </PersistentString>
             <PersistentString
-               value = "friendsListSearchData">
+               value = "indexPath.section">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -146,6 +171,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NewsCell.likePressed.didset:NewsCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "likeCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginController.addLoginAnimationViews():LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -153,14 +186,6 @@
             </PersistentString>
             <PersistentString
                value = "firstLoginCircle.frame">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "NewsCell.likePressed.didset:NewsCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "likeCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

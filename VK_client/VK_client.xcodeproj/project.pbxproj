@@ -18,6 +18,7 @@
 		B546E4AB24B762E10003FEA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AA24B762E10003FEA3 /* User.swift */; };
 		B546E4AE24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AD24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift */; };
 		B546E4B024B76EC10003FEA3 /* FriendsPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */; };
+		B547630624D4000F00DD9BC5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B547630524D4000F00DD9BC5 /* PhotoViewController.swift */; };
 		B5476EDC24B8CD3E00F7570C /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EDB24B8CD3E00F7570C /* GroupsTableViewController.swift */; };
 		B5476EDE24B8CD6C00F7570C /* GroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EDD24B8CD6C00F7570C /* GroupsTableCell.swift */; };
 		B5476EE124B8CDA200F7570C /* GroupsSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5476EE024B8CDA200F7570C /* GroupsSearchTableViewController.swift */; };
@@ -46,6 +47,7 @@
 		B546E4AA24B762E10003FEA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B546E4AD24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCell.swift; sourceTree = "<group>"; };
+		B547630524D4000F00DD9BC5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		B5476EDB24B8CD3E00F7570C /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		B5476EDD24B8CD6C00F7570C /* GroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableCell.swift; sourceTree = "<group>"; };
 		B5476EE024B8CDA200F7570C /* GroupsSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchTableViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				B5483CB924BB3EAF002B57B8 /* LikeControlView.swift */,
 				B546E4AD24B76EAA0003FEA3 /* FriendsPhotoCollectionViewController.swift */,
 				B546E4AF24B76EC10003FEA3 /* FriendsPhotoCell.swift */,
+				B547630524D4000F00DD9BC5 /* PhotoViewController.swift */,
 			);
 			path = FriendsPhotoCollection;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				B546E4AB24B762E10003FEA3 /* User.swift in Sources */,
 				B51BBD9524CBB61800FE2822 /* NewsTableViewController.swift in Sources */,
 				B5476EE524B8D0D800F7570C /* Group.swift in Sources */,
+				B547630624D4000F00DD9BC5 /* PhotoViewController.swift in Sources */,
 				B590EDD224AF67EA00179DEA /* AppDelegate.swift in Sources */,
 				B57E2D6E24B62D7A006CD7F3 /* FriendsTableViewController.swift in Sources */,
 				B526A99524C9F93E005A0965 /* FriendsTableSectionHeaderView.swift in Sources */,
