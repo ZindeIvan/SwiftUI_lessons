@@ -32,4 +32,20 @@ class FriendsPhotoCollectionViewController : UICollectionViewController {
         return cell
     }
     
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        //Проверим идентификатор перехода
+        if segue.identifier == "PhotoSegue" {
+            //Если переход предназначен для открытия коллекции фото друга
+            if let destination = segue.destination as? PhotoViewController {
+                
+                guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+
+                destination.setPhotoInformation(friendID: friendID, friendPhotoCount: 3, friendPhotoID: indexPath.row)
+            }
+        }
+    }
+    
 }
