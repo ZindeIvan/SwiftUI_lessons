@@ -3,19 +3,36 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PhotoViewController.onPan(_:):PhotoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "velocity.x &lt; 0">
+            </PersistentString>
+            <PersistentString
+               value = "friendID! + &quot;_photo\(newPhotoID)&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "newPhotoImageView.frame">
+            </PersistentString>
+            <PersistentString
+               value = "UIImage(named: friendID! + &quot;_photo\(newPhotoID)&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PhotoViewController.viewDidLoad():PhotoViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "friendPhotoCount">
+               value = "image.cgImage?.width">
+            </PersistentString>
+            <PersistentString
+               value = "image.cgImage?.height">
             </PersistentString>
             <PersistentString
                value = "image">
             </PersistentString>
             <PersistentString
                value = "friendID">
-            </PersistentString>
-            <PersistentString
-               value = "friendPhotoID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
