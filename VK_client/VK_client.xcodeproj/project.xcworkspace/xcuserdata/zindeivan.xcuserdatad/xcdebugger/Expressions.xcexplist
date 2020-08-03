@@ -37,6 +37,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PhotoViewController.currentSign.didset:PhotoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "newPhotoImageView.frame">
+            </PersistentString>
+            <PersistentString
+               value = "currentSign">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsViewController.prepare(for:sender:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -56,6 +67,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PushAnimator.animateTransition(using:):Animator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "destination.view.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginController.shouldPerformSegue(withIdentifier:sender:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -63,14 +82,6 @@
             </PersistentString>
             <PersistentString
                value = "identifier == loginSegueName">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PushAnimator.animateTransition(using:):Animator.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "destination.view.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -94,13 +105,13 @@
          contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+               value = "frame.maxX">
             </PersistentString>
             <PersistentString
                value = "frame.minX">
             </PersistentString>
             <PersistentString
-               value = "frame.maxX">
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -108,13 +119,13 @@
          contextName = "FriendsViewController.tableView(_:cellForRowAt:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "indexPath.section">
+               value = "friendsListSearchData">
             </PersistentString>
             <PersistentString
                value = "indexPath.row">
             </PersistentString>
             <PersistentString
-               value = "friendsListSearchData">
+               value = "indexPath.section">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -173,6 +184,17 @@
             </PersistentString>
             <PersistentString
                value = "self.iconImageView.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhotoViewController.setImages():PhotoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "friendPhotoID!">
+            </PersistentString>
+            <PersistentString
+               value = "friendPhotoCount! - 1">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
