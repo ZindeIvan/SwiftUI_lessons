@@ -543,7 +543,7 @@
         <!--Friends-->
         <scene sceneID="VXU-Bm-eFd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8q3-Jn-U8i" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8q3-Jn-U8i" customClass="FriendsNavigationController" customModule="VK_client" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2" catalog="system" id="Hwh-7A-CFl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AOZ-0K-mE0">

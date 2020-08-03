@@ -103,7 +103,7 @@ class LoginController: UIViewController {
         //Проверим данные входа
         if checkLoginInfo() {
             //Запустим анимацию входа
-            performLoginAnimation(repeatCounter: 1, maxRepeatCount: 3)
+            performLoginAnimation(repeatCounter: 1, maxRepeatCount: 1)
 
         }
             //Если проверка не пройдена отобразить ошибку
