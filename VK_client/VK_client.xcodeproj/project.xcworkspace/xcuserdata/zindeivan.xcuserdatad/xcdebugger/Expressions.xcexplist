@@ -67,6 +67,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PushAnimator.animateTransition(using:):Animator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "destination.view.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "FriendsPhotoCollectionViewController.prepare(for:sender:):FriendsPhotoCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -86,13 +94,13 @@
          contextName = "IconShadowView.configureLayer():FriendsIconView.swift">
          <PersistentStrings>
             <PersistentString
+               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
+            </PersistentString>
+            <PersistentString
                value = "frame.minX">
             </PersistentString>
             <PersistentString
                value = "frame.maxX">
-            </PersistentString>
-            <PersistentString
-               value = "UIBezierPath(ovalIn: CGRect(x: frame.minX + 2, y: frame.minY + 2, width: frame.maxX - 3, height: frame.maxY - 3))">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -100,13 +108,13 @@
          contextName = "FriendsViewController.tableView(_:cellForRowAt:):FriendsTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "friendsListSearchData">
+               value = "indexPath.section">
             </PersistentString>
             <PersistentString
                value = "indexPath.row">
             </PersistentString>
             <PersistentString
-               value = "indexPath.section">
+               value = "friendsListSearchData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
